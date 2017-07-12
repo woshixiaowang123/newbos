@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.bos.domain">
+    <class name="Dept" table="dept_p" schema="new_bos">
+        <id name="id" column="DEPT_ID" type="java.lang.String">
+            <generator class="uuid"/>
+        </id>
+        <property name="deptname" column="DEPT_NAME" type="java.lang.String"/>
+        <property name="state" column="STATE" type="java.lang.Integer"></property>
+        <!--自关联,子部门对父部门,多对一-->
+        <many-to-one name="parent" column="PARENT_ID" class="Dept"></many-to-one>
+
+    </class>
+</hibernate-mapping>
