@@ -10,7 +10,7 @@
 
 	<package name="sysadmin" namespace="/sysadmin" extends="struts-default">
 		<action name="deptAction_*" class="deptAction" method="{1}">
-			<result name="list">/WEB-INF/pages/sysadmin/dept/jDeptList.jsp</result>
+			<result name="list">/WEB-INF/pages/sysadmin/dept/jDeptList1.jsp</result>
 		</action>
 
 		
