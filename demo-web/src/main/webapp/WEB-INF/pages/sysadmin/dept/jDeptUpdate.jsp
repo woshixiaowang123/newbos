@@ -35,14 +35,14 @@
 	            <td class="columnTitle">上级部门：</td>
 	            <td class="tableContent">
 	            	<s:select name="parent.id" list="deptList"
-	            		listKey="id" listValue="deptName"
+	            		listKey="id" listValue="deptname"
 	            		headerKey="" headerValue="--请选择--"
 	            	></s:select>
 	            </td>
 	        </tr>		
 	        <tr>
 	            <td class="columnTitle">部门名称：</td>
-	            <td class="tableContent"><input type="text" name="deptName" value="${deptName }"/>
+	            <td class="tableContent"><input type="text" name="deptname" value="${deptname }"/>
 	            </td>
 	        </tr>		
 		</table>

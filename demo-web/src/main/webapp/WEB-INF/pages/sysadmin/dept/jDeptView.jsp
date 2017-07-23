@@ -32,12 +32,12 @@
 	        <tr>
 	            <td class="columnTitle">上级部门：</td>
 	            <td class="tableContent">
-	            	${parent.deptName }
+	            	${parent.deptname }
 	            </td>
 	        </tr>		
 	        <tr>
 	            <td class="columnTitle">部门名称：</td>
-	            <td class="tableContent">${deptName }</td>
+	            <td class="tableContent">${deptname }</td>
 	        </tr>		
 		</table>
 	</div>

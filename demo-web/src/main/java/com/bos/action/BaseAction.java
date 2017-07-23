@@ -1,5 +1,6 @@
 package com.bos.action;
 
+import java.util.List;
 import java.util.Map;
 
 import com.opensymphony.xwork2.ActionContext;
@@ -59,6 +60,11 @@ public class BaseAction extends ActionSupport implements RequestAware, SessionAw
 	//压栈顶
 	public void pushStack(Object object){
 		ActionContext.getContext().getValueStack().push(object);
+	}
+
+	//把list的内容放入context区域中
+	public  void pushContext(String key,List list){
+		ActionContext.getContext().put(key,list);
 	}
 
 }

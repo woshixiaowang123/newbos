@@ -33,12 +33,12 @@
 	        <tr>
 	            <td class="columnTitle">上级部门：</td>
 	            <td class="tableContent">
-	            	<s:select name="parent.id" list="#deptList" headerKey="" headerValue="--请选择--" listKey="id" listValue="deptName"></s:select>
+	            	<s:select name="parent.id" list="#deptList" headerKey="" headerValue="--请选择--" listKey="id" listValue="deptname"></s:select>
 	            </td>
 	        </tr>		
 	        <tr>
 	            <td class="columnTitle">部门名称：</td>
-	            <td class="tableContent"><input type="text" name="deptName" value=""/></td>
+	            <td class="tableContent"><input type="text" name="deptname" value=""/></td>
 	        </tr>		
 		</table>
 	</div>

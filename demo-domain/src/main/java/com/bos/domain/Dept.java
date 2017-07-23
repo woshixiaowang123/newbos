@@ -14,6 +14,17 @@ public class Dept implements Serializable {
     private String deptname;
     private Dept parent;//自关联'
     private Integer state;//1启用0停用
+    private Integer orderno;
+
+    public Integer getOrderno() {
+        return orderno;
+    }
+
+    public void setOrderno(Integer orderno) {
+        this.orderno = orderno;
+    }
+
+
 
     public String getId() {
         return id;
@@ -54,6 +65,7 @@ public class Dept implements Serializable {
                 ", deptname='" + deptname + '\'' +
                 ", parent=" + parent +
                 ", state=" + state +
+                ", ordernum=" + orderno +
                 '}';
     }
 }

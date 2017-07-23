@@ -23,6 +23,10 @@
 		
 		<!--  加载映射文件-->
 		<mapping resource="com/bos/domain/Dept.hbm.xml"></mapping>
-	
+		<mapping resource="com/bos/domain/User.hbm.xml"></mapping>
+		<mapping resource="com/bos/domain/Module.hbm.xml"></mapping>
+		<mapping resource="com/bos/domain/Role.hbm.xml"></mapping>
+		<mapping resource="com/bos/domain/UserInfo.hbm.xml"></mapping>
+
 	</session-factory>
 	</hibernate-configuration>

@@ -2,12 +2,13 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.bos.domain">
-    <class name="Dept" table="dept_p" schema="new_bos">
+    <class name="Dept" table="dept_p" schema="new_bos" lazy="false">
         <id name="id" column="DEPT_ID" type="java.lang.String">
             <generator class="uuid"/>
         </id>
         <property name="deptname" column="DEPT_NAME" type="java.lang.String"/>
         <property name="state" column="STATE" type="java.lang.Integer"></property>
+<property name="orderno" type="java.lang.Integer" column="ORDER_NO"></property>
         <!--自关联,子部门对父部门,多对一-->
         <many-to-one name="parent" column="PARENT_ID" class="Dept"></many-to-one>
 
