@@ -34,7 +34,7 @@
 	            <td class="columnTitle">所在部门：</td>
 	             <td class="tableContent">
 	            	<s:select name="dept.id" list="deptList"
-	            		listKey="id" listValue="deptName"
+	            		listKey="id" listValue="deptname"
 	            		headerKey="" headerValue="--请选择--"
 	            	></s:select>
 	            </td>

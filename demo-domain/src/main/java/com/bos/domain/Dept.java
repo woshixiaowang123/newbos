@@ -1,7 +1,11 @@
 package com.bos.domain;
 
+import org.hibernate.annotations.Table;
+
 import javax.persistence.Entity;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * 部门实体类
@@ -14,18 +18,22 @@ public class Dept implements Serializable {
     private String deptname;
     private Dept parent;//自关联'
     private Integer state;//1启用0停用
-    private Integer orderno;
+    private Integer orderno;//排序的编码
+    private Set<User> users = new HashSet<User>(0);
 
-    public Integer getOrderno() {
-        return orderno;
+    public Dept() {
     }
 
-    public void setOrderno(Integer orderno) {
+    public Dept(String id, String deptname, Dept parent, Integer state, Integer orderno, Set<User> users) {
+        this.id = id;
+        this.deptname = deptname;
+        this.parent = parent;
+        this.state = state;
         this.orderno = orderno;
+        this.users = users;
     }
 
-
-
+    @javax.persistence.Id
     public String getId() {
         return id;
     }
@@ -58,6 +66,22 @@ public class Dept implements Serializable {
         this.state = state;
     }
 
+    public Integer getOrderno() {
+        return orderno;
+    }
+
+    public void setOrderno(Integer orderno) {
+        this.orderno = orderno;
+    }
+
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
+    }
+
     @Override
     public String toString() {
         return "Dept{" +
@@ -65,7 +89,8 @@ public class Dept implements Serializable {
                 ", deptname='" + deptname + '\'' +
                 ", parent=" + parent +
                 ", state=" + state +
-                ", ordernum=" + orderno +
+                ", orderno=" + orderno +
+                ", users=" + users +
                 '}';
     }
 }

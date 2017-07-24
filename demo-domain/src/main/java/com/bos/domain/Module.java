@@ -12,28 +12,28 @@ public class Module implements java.io.Serializable {
 
 	// Fields
 
-	private String moduleId;
-	private String parentId;
-	private String parentName;
-	private String name;
-	private Integer layerNum;
-	private Integer isLeaf;
-	private String ico;
-	private String cpermission;
-	private String curl;
-	private Integer ctype;
-	private Integer state;
-	private String belong;
+	private String id;
+	private String parentId;//自关联,子模块,父模块
+	private String parentName; //父模块名称
+	private String name;//模块名
+	private Integer layerNum;//层数
+	private Integer isLeaf;//叶子
+	private String ico;//图片
+	private String cpermission;//权限
+	private String curl;//路径
+	private Integer ctype;//菜单类型
+	private Integer state;//状态
+	private String belong;//从属于
 	private String cwhich;
-	private Integer quoteNum;
-	private String remark;
-	private Integer orderNo;
+	private Integer quoteNum;//引用次数
+	private String remark;//说明
+	private Integer orderNo;//排序编号
 	private String createBy;
 	private String createDept;
 	private Timestamp createTime;
 	private String updateBy;
 	private Timestamp updateTime;
-	private Set<Role> roles = new HashSet(0);
+	private Set<Role> roles = new HashSet(0);//模块与角色的多对多关系
 
 	// Constructors
 
@@ -43,7 +43,7 @@ public class Module implements java.io.Serializable {
 
 	/** minimal constructor */
 	public Module(String moduleId, Timestamp createTime, Timestamp updateTime) {
-		this.moduleId = moduleId;
+		this.id = moduleId;
 		this.createTime = createTime;
 		this.updateTime = updateTime;
 	}
@@ -53,7 +53,7 @@ public class Module implements java.io.Serializable {
 			String ico, String cpermission, String curl, Integer ctype, Integer state, String belong, String cwhich,
 			Integer quoteNum, String remark, Integer orderNo, String createBy, String createDept, Timestamp createTime,
 			String updateBy, Timestamp updateTime, Set roles) {
-		this.moduleId = moduleId;
+		this.id = moduleId;
 		this.parentId = parentId;
 		this.parentName = parentName;
 		this.name = name;
@@ -79,16 +79,17 @@ public class Module implements java.io.Serializable {
 
 	// Property accessors
 
-	public String getModuleId() {
-		return this.moduleId;
+
+	public String getId() {
+		return id;
 	}
 
-	public void setModuleId(String moduleId) {
-		this.moduleId = moduleId;
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getParentId() {
-		return this.parentId;
+		return parentId;
 	}
 
 	public void setParentId(String parentId) {
@@ -96,7 +97,7 @@ public class Module implements java.io.Serializable {
 	}
 
 	public String getParentName() {
-		return this.parentName;
+		return parentName;
 	}
 
 	public void setParentName(String parentName) {
@@ -104,7 +105,7 @@ public class Module implements java.io.Serializable {
 	}
 
 	public String getName() {
-		return this.name;
+		return name;
 	}
 
 	public void setName(String name) {
@@ -112,7 +113,7 @@ public class Module implements java.io.Serializable {
 	}
 
 	public Integer getLayerNum() {
-		return this.layerNum;
+		return layerNum;
 	}
 
 	public void setLayerNum(Integer layerNum) {
@@ -120,7 +121,7 @@ public class Module implements java.io.Serializable {
 	}
 
 	public Integer getIsLeaf() {
-		return this.isLeaf;
+		return isLeaf;
 	}
 
 	public void setIsLeaf(Integer isLeaf) {
@@ -128,7 +129,7 @@ public class Module implements java.io.Serializable {
 	}
 
 	public String getIco() {
-		return this.ico;
+		return ico;
 	}
 
 	public void setIco(String ico) {
@@ -136,7 +137,7 @@ public class Module implements java.io.Serializable {
 	}
 
 	public String getCpermission() {
-		return this.cpermission;
+		return cpermission;
 	}
 
 	public void setCpermission(String cpermission) {
@@ -144,7 +145,7 @@ public class Module implements java.io.Serializable {
 	}
 
 	public String getCurl() {
-		return this.curl;
+		return curl;
 	}
 
 	public void setCurl(String curl) {
@@ -152,7 +153,7 @@ public class Module implements java.io.Serializable {
 	}
 
 	public Integer getCtype() {
-		return this.ctype;
+		return ctype;
 	}
 
 	public void setCtype(Integer ctype) {
@@ -160,7 +161,7 @@ public class Module implements java.io.Serializable {
 	}
 
 	public Integer getState() {
-		return this.state;
+		return state;
 	}
 
 	public void setState(Integer state) {
@@ -168,7 +169,7 @@ public class Module implements java.io.Serializable {
 	}
 
 	public String getBelong() {
-		return this.belong;
+		return belong;
 	}
 
 	public void setBelong(String belong) {
@@ -176,7 +177,7 @@ public class Module implements java.io.Serializable {
 	}
 
 	public String getCwhich() {
-		return this.cwhich;
+		return cwhich;
 	}
 
 	public void setCwhich(String cwhich) {
@@ -184,7 +185,7 @@ public class Module implements java.io.Serializable {
 	}
 
 	public Integer getQuoteNum() {
-		return this.quoteNum;
+		return quoteNum;
 	}
 
 	public void setQuoteNum(Integer quoteNum) {
@@ -192,7 +193,7 @@ public class Module implements java.io.Serializable {
 	}
 
 	public String getRemark() {
-		return this.remark;
+		return remark;
 	}
 
 	public void setRemark(String remark) {
@@ -200,7 +201,7 @@ public class Module implements java.io.Serializable {
 	}
 
 	public Integer getOrderNo() {
-		return this.orderNo;
+		return orderNo;
 	}
 
 	public void setOrderNo(Integer orderNo) {
@@ -208,7 +209,7 @@ public class Module implements java.io.Serializable {
 	}
 
 	public String getCreateBy() {
-		return this.createBy;
+		return createBy;
 	}
 
 	public void setCreateBy(String createBy) {
@@ -216,7 +217,7 @@ public class Module implements java.io.Serializable {
 	}
 
 	public String getCreateDept() {
-		return this.createDept;
+		return createDept;
 	}
 
 	public void setCreateDept(String createDept) {
@@ -224,7 +225,7 @@ public class Module implements java.io.Serializable {
 	}
 
 	public Timestamp getCreateTime() {
-		return this.createTime;
+		return createTime;
 	}
 
 	public void setCreateTime(Timestamp createTime) {
@@ -232,7 +233,7 @@ public class Module implements java.io.Serializable {
 	}
 
 	public String getUpdateBy() {
-		return this.updateBy;
+		return updateBy;
 	}
 
 	public void setUpdateBy(String updateBy) {
@@ -240,25 +241,25 @@ public class Module implements java.io.Serializable {
 	}
 
 	public Timestamp getUpdateTime() {
-		return this.updateTime;
+		return updateTime;
 	}
 
 	public void setUpdateTime(Timestamp updateTime) {
 		this.updateTime = updateTime;
 	}
 
-	public Set getRoles() {
-		return this.roles;
+	public Set<Role> getRoles() {
+		return roles;
 	}
 
-	public void setRoles(Set roles) {
+	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
 
 	@Override
 	public String toString() {
 		return "Module{" +
-				"moduleId='" + moduleId + '\'' +
+				"id='" + id + '\'' +
 				", parentId='" + parentId + '\'' +
 				", parentName='" + parentName + '\'' +
 				", name='" + name + '\'' +

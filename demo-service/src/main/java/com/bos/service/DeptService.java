@@ -3,6 +3,7 @@ package com.bos.service;
 import com.bos.domain.Dept;
 import com.bos.utils.Page;
 import org.apache.poi.ss.formula.functions.T;
+import org.hibernate.criterion.DetachedCriteria;
 
 import java.io.Serializable;
 import java.util.Collection;

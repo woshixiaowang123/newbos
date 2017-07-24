@@ -1,6 +1,7 @@
 package com.bos.domain;
 
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -8,166 +9,106 @@ import java.util.Set;
  * User entity. @author MyEclipse Persistence Tools
  */
 
-public class User implements java.io.Serializable {
+public class User extends BaseEntity {
 
-	// Fields
+    // Fields
 
-	private String userId;
-	private Dept dept;
-	private String userName;
-	private String password;
-	private Integer state;
-	private String createBy;
-	private String createDept;
-	private Timestamp createTime;
-	private String updateBy;
-	private Timestamp updateTime;
-	private Set<Role> roles = new HashSet(0);
-	private Set<UserInfo> userInfos = new HashSet(0);
+    private String id;
+    private Dept dept;
+    private String userName;
+    private String password;
+    private Integer state;
 
-	// Constructors
+    private UserInfo userInfo;
 
-	/** default constructor */
-	public User() {
-	}
+    private Set<Role> roles = new HashSet(0);
 
-	/** minimal constructor */
-	public User(String userId, Timestamp createTime, Timestamp updateTime) {
-		this.userId = userId;
-		this.createTime = createTime;
-		this.updateTime = updateTime;
-	}
+    // Constructors
 
-	/** full constructor */
-	public User(String userId, Dept dept, String userName, String password, Integer state, String createBy,
-			String createDept, Timestamp createTime, String updateBy, Timestamp updateTime, Set roles, Set userInfos) {
-		this.userId = userId;
-		this.dept = dept;
-		this.userName = userName;
-		this.password = password;
-		this.state = state;
-		this.createBy = createBy;
-		this.createDept = createDept;
-		this.createTime = createTime;
-		this.updateBy = updateBy;
-		this.updateTime = updateTime;
-		this.roles = roles;
-		this.userInfos = userInfos;
-	}
+    /**
+     * default constructor
+     */
+    public User() {
+    }
 
-	// Property accessors
+    public UserInfo getUserInfo() {
+        return userInfo;
+    }
 
-	public String getUserId() {
-		return this.userId;
-	}
+    public void setUserInfo(UserInfo userInfo) {
+        this.userInfo = userInfo;
+    }
 
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
+    /**
+     * full constructor
+     */
 
-	public Dept getDept() {
-		return this.dept;
-	}
 
-	public void setDept(Dept dept) {
-		this.dept = dept;
-	}
 
-	public String getUserName() {
-		return this.userName;
-	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
+    public String getId() {
+        return id;
+    }
 
-	public String getPassword() {
-		return this.password;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public Dept getDept() {
+        return dept;
+    }
 
-	public Integer getState() {
-		return this.state;
-	}
+    public void setDept(Dept dept) {
+        this.dept = dept;
+    }
 
-	public void setState(Integer state) {
-		this.state = state;
-	}
+    public String getUserName() {
+        return userName;
+    }
 
-	public String getCreateBy() {
-		return this.createBy;
-	}
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
-	public void setCreateBy(String createBy) {
-		this.createBy = createBy;
-	}
+    public String getPassword() {
+        return password;
+    }
 
-	public String getCreateDept() {
-		return this.createDept;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	public void setCreateDept(String createDept) {
-		this.createDept = createDept;
-	}
+    public Integer getState() {
+        return state;
+    }
 
-	public Timestamp getCreateTime() {
-		return this.createTime;
-	}
+    public void setState(Integer state) {
+        this.state = state;
+    }
 
-	public void setCreateTime(Timestamp createTime) {
-		this.createTime = createTime;
-	}
+    public Set<Role> getRoles() {
+        return roles;
+    }
 
-	public String getUpdateBy() {
-		return this.updateBy;
-	}
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
 
-	public void setUpdateBy(String updateBy) {
-		this.updateBy = updateBy;
-	}
-
-	public Timestamp getUpdateTime() {
-		return this.updateTime;
-	}
-
-	public void setUpdateTime(Timestamp updateTime) {
-		this.updateTime = updateTime;
-	}
-
-	public Set getRoles() {
-		return this.roles;
-	}
-
-	public void setRoles(Set roles) {
-		this.roles = roles;
-	}
-
-	public Set getUserInfos() {
-		return this.userInfos;
-	}
-
-	public void setUserInfos(Set userInfos) {
-		this.userInfos = userInfos;
-	}
-
-	@Override
-	public String toString() {
-		return "User{" +
-				"userId='" + userId + '\'' +
-				", dept=" + dept +
-				", userName='" + userName + '\'' +
-				", password='" + password + '\'' +
-				", state=" + state +
-				", createBy='" + createBy + '\'' +
-				", createDept='" + createDept + '\'' +
-				", createTime=" + createTime +
-				", updateBy='" + updateBy + '\'' +
-				", updateTime=" + updateTime +
-				", roles=" + roles +
-				", userInfos=" + userInfos +
-				'}';
-	}
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", dept=" + dept +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", state=" + state +
+                ", userInfo=" + userInfo +
+                ", roles=" + roles +
+                ", createBy='" + createBy + '\'' +
+                ", createDept='" + createDept + '\'' +
+                ", createTime=" + createTime +
+                ", updateBy='" + updateBy + '\'' +
+                ", updateTime=" + updateTime +
+                '}';
+    }
 }

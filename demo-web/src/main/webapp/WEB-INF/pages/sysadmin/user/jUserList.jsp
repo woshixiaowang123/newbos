@@ -37,6 +37,15 @@
 	    		 alert("请先选择一项并且只能选择一项，再进行操作！");
 	    	 }
 	     }
+
+	     //删除信息
+		function dele() {
+            if(isOnlyChecked()){
+                formSubmit('userAction_delete','_self');
+            }else{
+                alert("请先选择一项并且只能选择一项，再进行操作！");
+            }
+        }
 	</script>
 </head>
 
@@ -51,7 +60,7 @@
 <li id="new"><a href="#" onclick="formSubmit('userAction_tocreate','_self');this.blur();">新增</a></li>
 <li id="update"><a href="#" onclick="javascript:toUpdate()">修改</a></li>
 <li id="update"><a href="#" onclick="formSubmit('userAction_torole','_self');this.blur();">角色</a></li>
-<li id="delete"><a href="#" onclick="formSubmit('userAction_delete','_self');this.blur();">删除</a></li>
+<li id="delete"><a href="#" onclick="javascript:dele()">删除</a></li>
 </ul>
   </div>
 </div>
@@ -84,11 +93,12 @@
 ${links}
 	
 	<c:forEach items="${results}" var="o" varStatus="status">
-	<tr class="odd" onmouseover="this.className='highlight'" onmouseout="this.className='odd'" >
+	<tr class="odd" onmouseover="this.className='highlight'" onmouseout="this.className='odd'" align="left" >
 		<td><input type="checkbox" name="id" value="${o.id}"/></td>
 		<td>${status.index+1}</td>
 		<td><a href="userAction_toview?id=${o.id}">${o.userName}</a></td>
-		<td>${o.state }</td>
+		<td>${o.state==1?"在职":"离职"}
+				<%--${o.state }--%></td>
 	</tr>
 	</c:forEach>
 	

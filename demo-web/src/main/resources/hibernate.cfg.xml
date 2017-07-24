@@ -18,10 +18,12 @@
 		<property name="hbm2ddl.auto">update</property>
 		<!-- 懒加载，配合web.xml中配置的 openSessionInViewFilter -->
 		<property name="hibernate.enable_lazy_load_no_trans">true</property>
+
         <!--校验模式  JPA  java persistent api-->
 		<property name="javax.persistence.validation.mode">none</property>
 		
 		<!--  加载映射文件-->
+
 		<mapping resource="com/bos/domain/Dept.hbm.xml"></mapping>
 		<mapping resource="com/bos/domain/User.hbm.xml"></mapping>
 		<mapping resource="com/bos/domain/Module.hbm.xml"></mapping>

@@ -1,32 +1,28 @@
 package com.bos.domain;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 
 /**
  * UserInfo entity. @author MyEclipse Persistence Tools
  */
 
-public class UserInfo implements java.io.Serializable {
+public class UserInfo extends BaseEntity{
 
 	// Fields
 
-	private String userInfoId;
-	private User user;
-	private String name;
-	private Timestamp joinDate;
-	private Double salary;
-	private Timestamp birthday;
-	private String gender;
-	private String station;
-	private String telephone;
-	private Integer degree;
-	private String remark;
-	private Integer orderNo;
-	private String createBy;
-	private String createDept;
-	private Timestamp createTime;
-	private String updateBy;
-	private Timestamp updateTime;
+	private String id;
+	private User user;//直属领导  多对一
+	private String name;//姓名
+	private Date joinDate;//入职时间
+	private Double salary;//薪水
+	private Date birthday;//出生日期
+	private String gender;//性别
+	private String station;//岗位
+	private String telephone;//电话
+	private Integer degree;//等级
+	private String remark;//说明
+	private Integer orderNo;//排序号
 
 	// Constructors
 
@@ -34,21 +30,8 @@ public class UserInfo implements java.io.Serializable {
 	public UserInfo() {
 	}
 
-	/** minimal constructor */
-	public UserInfo(String userInfoId, Timestamp joinDate, Timestamp birthday, Timestamp createTime,
-			Timestamp updateTime) {
-		this.userInfoId = userInfoId;
-		this.joinDate = joinDate;
-		this.birthday = birthday;
-		this.createTime = createTime;
-		this.updateTime = updateTime;
-	}
-
-	/** full constructor */
-	public UserInfo(String userInfoId, User user, String name, Timestamp joinDate, Double salary, Timestamp birthday,
-			String gender, String station, String telephone, Integer degree, String remark, Integer orderNo,
-			String createBy, String createDept, Timestamp createTime, String updateBy, Timestamp updateTime) {
-		this.userInfoId = userInfoId;
+	public UserInfo(String userInfoId, User user, String name, Date joinDate, Double salary, Date birthday, String gender, String station, String telephone, Integer degree, String remark, Integer orderNo, String createBy, String createDept, Date createTime, String updateBy, Date updateTime) {
+		this.id = userInfoId;
 		this.user = user;
 		this.name = name;
 		this.joinDate = joinDate;
@@ -67,18 +50,16 @@ public class UserInfo implements java.io.Serializable {
 		this.updateTime = updateTime;
 	}
 
-	// Property accessors
-
-	public String getUserInfoId() {
-		return this.userInfoId;
+	public String getId() {
+		return id;
 	}
 
-	public void setUserInfoId(String userInfoId) {
-		this.userInfoId = userInfoId;
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public User getUser() {
-		return this.user;
+		return user;
 	}
 
 	public void setUser(User user) {
@@ -86,39 +67,39 @@ public class UserInfo implements java.io.Serializable {
 	}
 
 	public String getName() {
-		return this.name;
+		return name;
 	}
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	public Timestamp getJoinDate() {
-		return this.joinDate;
+	public Date getJoinDate() {
+		return joinDate;
 	}
 
-	public void setJoinDate(Timestamp joinDate) {
+	public void setJoinDate(Date joinDate) {
 		this.joinDate = joinDate;
 	}
 
 	public Double getSalary() {
-		return this.salary;
+		return salary;
 	}
 
 	public void setSalary(Double salary) {
 		this.salary = salary;
 	}
 
-	public Timestamp getBirthday() {
-		return this.birthday;
+	public Date getBirthday() {
+		return birthday;
 	}
 
-	public void setBirthday(Timestamp birthday) {
+	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
 	}
 
 	public String getGender() {
-		return this.gender;
+		return gender;
 	}
 
 	public void setGender(String gender) {
@@ -126,7 +107,7 @@ public class UserInfo implements java.io.Serializable {
 	}
 
 	public String getStation() {
-		return this.station;
+		return station;
 	}
 
 	public void setStation(String station) {
@@ -134,7 +115,7 @@ public class UserInfo implements java.io.Serializable {
 	}
 
 	public String getTelephone() {
-		return this.telephone;
+		return telephone;
 	}
 
 	public void setTelephone(String telephone) {
@@ -142,7 +123,7 @@ public class UserInfo implements java.io.Serializable {
 	}
 
 	public Integer getDegree() {
-		return this.degree;
+		return degree;
 	}
 
 	public void setDegree(Integer degree) {
@@ -150,7 +131,7 @@ public class UserInfo implements java.io.Serializable {
 	}
 
 	public String getRemark() {
-		return this.remark;
+		return remark;
 	}
 
 	public void setRemark(String remark) {
@@ -158,57 +139,17 @@ public class UserInfo implements java.io.Serializable {
 	}
 
 	public Integer getOrderNo() {
-		return this.orderNo;
+		return orderNo;
 	}
 
 	public void setOrderNo(Integer orderNo) {
 		this.orderNo = orderNo;
 	}
 
-	public String getCreateBy() {
-		return this.createBy;
-	}
-
-	public void setCreateBy(String createBy) {
-		this.createBy = createBy;
-	}
-
-	public String getCreateDept() {
-		return this.createDept;
-	}
-
-	public void setCreateDept(String createDept) {
-		this.createDept = createDept;
-	}
-
-	public Timestamp getCreateTime() {
-		return this.createTime;
-	}
-
-	public void setCreateTime(Timestamp createTime) {
-		this.createTime = createTime;
-	}
-
-	public String getUpdateBy() {
-		return this.updateBy;
-	}
-
-	public void setUpdateBy(String updateBy) {
-		this.updateBy = updateBy;
-	}
-
-	public Timestamp getUpdateTime() {
-		return this.updateTime;
-	}
-
-	public void setUpdateTime(Timestamp updateTime) {
-		this.updateTime = updateTime;
-	}
-
 	@Override
 	public String toString() {
 		return "UserInfo{" +
-				"userInfoId='" + userInfoId + '\'' +
+				"id='" + id + '\'' +
 				", user=" + user +
 				", name='" + name + '\'' +
 				", joinDate=" + joinDate +

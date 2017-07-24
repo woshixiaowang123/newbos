@@ -8,9 +8,16 @@
         </id>
         <property name="deptname" column="DEPT_NAME" type="java.lang.String"/>
         <property name="state" column="STATE" type="java.lang.Integer"></property>
-<property name="orderno" type="java.lang.Integer" column="ORDER_NO"></property>
+        <property name="orderno" type="java.lang.Integer" column="ORDER_NO"></property>
         <!--自关联,子部门对父部门,多对一-->
         <many-to-one name="parent" column="PARENT_ID" class="Dept"></many-to-one>
+
+        <!--一对多的配置文件 private Set<User> users = new HashSet<User>(0);,级联,以及一方放弃维护关系,有多的一方维护-->
+        <set name="users" cascade="all" inverse="true">
+            <key column="DEPT_ID"></key>
+            <one-to-many class="User"></one-to-many>
+        </set>
+
 
     </class>
 </hibernate-mapping>

@@ -6,9 +6,9 @@
 -->
 <hibernate-mapping>
     <class name="com.bos.domain.Module" table="module_p" catalog="new_bos">
-        <id name="moduleId" type="java.lang.String">
+        <id name="id" type="java.lang.String">
             <column name="MODULE_ID" length="40" />
-            <generator class="assigned" />
+            <generator class="uuid" />
         </id>
         <property name="parentId" type="java.lang.String">
             <column name="PARENT_ID" length="40" />

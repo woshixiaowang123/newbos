@@ -85,7 +85,7 @@
     ${links }
 	
 	<c:forEach items="${results }" var="dept"  varStatus="st">
-		<tr class="odd" onmouseover="this.className='highlight'" onmouseout="this.className='odd'" >
+		<tr class="odd" onmouseover="this.className='highlight'" onmouseout="this.className='odd'" align="left" >
 			<td><input type="checkbox" name="id" value="${dept.id }"/></td>
 			<td>${st.count }</td>
 			<td>${dept.id }</td>

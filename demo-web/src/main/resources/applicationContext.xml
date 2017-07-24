@@ -17,17 +17,19 @@
 	<context:component-scan base-package="com.bos.*"/>
 	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
 
-	
-	<!-- 1.dataSource-->
-	 <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
-		<property name="driverClass" value="com.mysql.jdbc.Driver" />
-		<property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/new_bos?characterEncoding=utf8" />
-		<property name="user" value="root" />
-		<property name="password" value="726112" />
+	<!--j加载数据源配置文件-->
+	<context:property-placeholder location="classpath:db.properties"></context:property-placeholder>
+	 <!--1.dataSource-->
+	 <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
 	</bean>
 
 	<!-- 2.sessionFactory-->
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+
 		<property name="dataSource" ref="dataSource"></property>
 		<property name="configLocation" value="classpath:hibernate.cfg.xml"></property>
 

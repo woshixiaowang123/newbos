@@ -37,13 +37,20 @@
 		<table class="commonTable" cellspacing="1">
        		<tr>
 	            <td class="columnTitle">所在部门：</td>
-	            <td class="tableContent">
-	            	<s:select name="dept.id" list="deptList"
-	            		listKey="id" listValue="deptName"
+	            <td class="tableContent" id="selectDept">
+	            	<s:select id="" name="dept.id" list="deptList"
+	            		listKey="id" listValue="deptname"
 	            		headerKey="" headerValue="--请选择--"
 	            	></s:select>
 	            </td>
 	        </tr>
+			<%--<script type="application/javascript">
+					function changes() {
+						$("#selectDept").change(function () {
+							
+                        })
+                    }
+			</script>--%>
         	<tr>
 	            <td class="columnTitle">登录名：</td>
 	            <td class="tableContent"><input type="text" name="userName" value=""/></td>

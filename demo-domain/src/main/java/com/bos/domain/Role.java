@@ -1,6 +1,8 @@
 package com.bos.domain;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -8,19 +10,19 @@ import java.util.Set;
  * Role entity. @author MyEclipse Persistence Tools
  */
 
-public class Role implements java.io.Serializable {
+public class Role implements Serializable {
 
     // Fields
 
-    private String roleId;
+    private String id;
     private String name;
     private String remark;
     private Integer orderNo;
     private String createBy;
     private String createDept;
-    private Timestamp createTime;
+    private Date createTime;
     private String updateBy;
-    private Timestamp updateTime;
+    private Date updateTime;
     private Set<Module> modules = new HashSet(0);
     private Set<User> users = new HashSet(0);
 
@@ -35,8 +37,8 @@ public class Role implements java.io.Serializable {
     /**
      * minimal constructor
      */
-    public Role(String roleId, Timestamp createTime, Timestamp updateTime) {
-        this.roleId = roleId;
+    public Role(String roleId,Date createTime, Date updateTime) {
+        this.id = roleId;
         this.createTime = createTime;
         this.updateTime = updateTime;
     }
@@ -44,9 +46,8 @@ public class Role implements java.io.Serializable {
     /**
      * full constructor
      */
-    public Role(String roleId, String name, String remark, Integer orderNo, String createBy, String createDept,
-                Timestamp createTime, String updateBy, Timestamp updateTime, Set modules, Set users) {
-        this.roleId = roleId;
+    public Role(String id, String name, String remark, Integer orderNo, String createBy, String createDept, Date createTime, String updateBy, Date updateTime, Set<Module> modules, Set<User> users) {
+        this.id = id;
         this.name = name;
         this.remark = remark;
         this.orderNo = orderNo;
@@ -59,18 +60,16 @@ public class Role implements java.io.Serializable {
         this.users = users;
     }
 
-    // Property accessors
-
-    public String getRoleId() {
-        return this.roleId;
+    public String getId() {
+        return id;
     }
 
-    public void setRoleId(String roleId) {
-        this.roleId = roleId;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
-        return this.name;
+        return name;
     }
 
     public void setName(String name) {
@@ -78,7 +77,7 @@ public class Role implements java.io.Serializable {
     }
 
     public String getRemark() {
-        return this.remark;
+        return remark;
     }
 
     public void setRemark(String remark) {
@@ -86,7 +85,7 @@ public class Role implements java.io.Serializable {
     }
 
     public Integer getOrderNo() {
-        return this.orderNo;
+        return orderNo;
     }
 
     public void setOrderNo(Integer orderNo) {
@@ -94,7 +93,7 @@ public class Role implements java.io.Serializable {
     }
 
     public String getCreateBy() {
-        return this.createBy;
+        return createBy;
     }
 
     public void setCreateBy(String createBy) {
@@ -102,57 +101,57 @@ public class Role implements java.io.Serializable {
     }
 
     public String getCreateDept() {
-        return this.createDept;
+        return createDept;
     }
 
     public void setCreateDept(String createDept) {
         this.createDept = createDept;
     }
 
-    public Timestamp getCreateTime() {
-        return this.createTime;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setCreateTime(Timestamp createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
     public String getUpdateBy() {
-        return this.updateBy;
+        return updateBy;
     }
 
     public void setUpdateBy(String updateBy) {
         this.updateBy = updateBy;
     }
 
-    public Timestamp getUpdateTime() {
-        return this.updateTime;
+    public Date getUpdateTime() {
+        return updateTime;
     }
 
-    public void setUpdateTime(Timestamp updateTime) {
+    public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
 
-    public Set getModules() {
-        return this.modules;
+    public Set<Module> getModules() {
+        return modules;
     }
 
-    public void setModules(Set modules) {
+    public void setModules(Set<Module> modules) {
         this.modules = modules;
     }
 
-    public Set getUsers() {
-        return this.users;
+    public Set<User> getUsers() {
+        return users;
     }
 
-    public void setUsers(Set users) {
+    public void setUsers(Set<User> users) {
         this.users = users;
     }
 
     @Override
     public String toString() {
         return "Role{" +
-                "roleId='" + roleId + '\'' +
+                "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", remark='" + remark + '\'' +
                 ", orderNo=" + orderNo +

@@ -11,6 +11,7 @@ import org.apache.struts2.interceptor.RequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
+import org.hibernate.criterion.DetachedCriteria;
 
 /**
  * @Description:
@@ -23,7 +24,17 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class BaseAction extends ActionSupport implements RequestAware, SessionAware, ApplicationAware{
 	private static Logger log = Logger.getLogger(BaseAction.class);
-	
+
+	protected DetachedCriteria detachedCriteria;
+
+	public DetachedCriteria getDetachedCriteria() {
+		return detachedCriteria;
+	}
+
+	public void setDetachedCriteria(DetachedCriteria detachedCriteria) {
+		this.detachedCriteria = detachedCriteria;
+	}
+
 	private static final long serialVersionUID = 1L;
 
 	protected Map<String, Object> request;
