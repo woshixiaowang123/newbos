@@ -1,5 +1,7 @@
 package com.bos.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.HashSet;
@@ -8,7 +10,8 @@ import java.util.Set;
 /**
  * User entity. @author MyEclipse Persistence Tools
  */
-
+@Entity
+@Table(name = "user_p", schema = "new_bos", catalog = "new_bos")
 public class User extends BaseEntity {
 
     // Fields
@@ -94,7 +97,7 @@ public class User extends BaseEntity {
         this.roles = roles;
     }
 
-    @Override
+  /*  @Override
     public String toString() {
         return "User{" +
                 "id='" + id + '\'' +
@@ -110,5 +113,5 @@ public class User extends BaseEntity {
                 ", updateBy='" + updateBy + '\'' +
                 ", updateTime=" + updateTime +
                 '}';
-    }
+    }*/
 }

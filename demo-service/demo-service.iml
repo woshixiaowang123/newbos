@@ -4,7 +4,6 @@
     <facet type="Spring" name="Spring">
       <configuration>
         <fileset id="fileset" name="Spring Application Context" removed="false">
-          <file>file://$MODULE_DIR$/../demo-dao/src/main/resources/applicationContext-dao.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/applicationContext-service.xml</file>
         </fileset>
       </configuration>
@@ -136,5 +135,7 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="Maven: net.sf.json-lib:json-lib:jdk15:2.4" level="project" />
+    <orderEntry type="library" name="Maven: net.sf.ezmorph:ezmorph:1.0.6" level="project" />
   </component>
 </module>

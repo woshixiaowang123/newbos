@@ -18,4 +18,5 @@
 	<!--<bean id="loginAction" class="com.bos.action.LoginAction" scope="prototype"></bean>
 	<bean id="homeAction" class="com.bos.action.HomeAction" scope="prototype"></bean>-->
 
+
 </beans>

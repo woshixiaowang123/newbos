@@ -1,16 +1,16 @@
 package com.bos.action;
 
 
+import com.bos.domain.User;
 import com.bos.utils.SysConstant;
+import com.bos.utils.UtilFuns;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
+import org.apache.struts2.ServletActionContext;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-/**
- * @Description: 登录和退出类
- * @Author:		传智播客 java学院	传智.宋江
- * @Company:	http://java.itcast.cn
- * @CreateDate:	2014年10月31日
- */
 @Controller
 @Scope("prototype")
 public class LoginAction extends BaseAction {
@@ -37,9 +37,38 @@ public class LoginAction extends BaseAction {
 //			session.put(SysConstant.CURRENT_USER_INFO, login);	//记录session
 //			return SUCCESS;
 //		}
+
 //		return "login";
-		
-		return SUCCESS;
+		Boolean b=UtilFuns.isEmpty(username);
+
+		if(UtilFuns.isEmpty(username)&&UtilFuns.isEmpty(password)){
+			request.put("errorInfo","对不起,用户名或者密码不能为空!");
+			return "login";
+		}
+
+
+		try {
+		//1,获得subject对象
+		Subject subject= SecurityUtils.getSubject();
+
+		//调用登陆方法
+		UsernamePasswordToken token=new UsernamePasswordToken(username,password);
+		subject.login(token);//当走这一行代码是程序跳入authrealm方法的认证方法
+
+			//登陆成功时从shiro中取得当前用户的信息
+			User user= (User) subject.getPrincipal();
+			//将用户存入session中
+			//ServletActionContext.getRequest().getSession();
+			session.put(SysConstant.CURRENT_USER_INFO,user);
+
+		}catch (Exception e){
+			e.printStackTrace();
+			request.put("errorInfo","对不起,用户名或者密码错误!");
+			return "login";
+
+		}
+		return "success";
+
 	}
 	
 	

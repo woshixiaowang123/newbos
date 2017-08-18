@@ -1,5 +1,7 @@
 package com.bos.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Date;
@@ -9,7 +11,8 @@ import java.util.Set;
 /**
  * Role entity. @author MyEclipse Persistence Tools
  */
-
+@Entity
+@Table(name = "role_p", schema = "new_bos")
 public class Role implements Serializable {
 
     // Fields
@@ -32,32 +35,6 @@ public class Role implements Serializable {
      * default constructor
      */
     public Role() {
-    }
-
-    /**
-     * minimal constructor
-     */
-    public Role(String roleId,Date createTime, Date updateTime) {
-        this.id = roleId;
-        this.createTime = createTime;
-        this.updateTime = updateTime;
-    }
-
-    /**
-     * full constructor
-     */
-    public Role(String id, String name, String remark, Integer orderNo, String createBy, String createDept, Date createTime, String updateBy, Date updateTime, Set<Module> modules, Set<User> users) {
-        this.id = id;
-        this.name = name;
-        this.remark = remark;
-        this.orderNo = orderNo;
-        this.createBy = createBy;
-        this.createDept = createDept;
-        this.createTime = createTime;
-        this.updateBy = updateBy;
-        this.updateTime = updateTime;
-        this.modules = modules;
-        this.users = users;
     }
 
     public String getId() {
@@ -146,22 +123,5 @@ public class Role implements Serializable {
 
     public void setUsers(Set<User> users) {
         this.users = users;
-    }
-
-    @Override
-    public String toString() {
-        return "Role{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", remark='" + remark + '\'' +
-                ", orderNo=" + orderNo +
-                ", createBy='" + createBy + '\'' +
-                ", createDept='" + createDept + '\'' +
-                ", createTime=" + createTime +
-                ", updateBy='" + updateBy + '\'' +
-                ", updateTime=" + updateTime +
-                ", modules=" + modules +
-                ", users=" + users +
-                '}';
     }
 }

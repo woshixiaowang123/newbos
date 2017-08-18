@@ -9,12 +9,26 @@
 	<constant name="struts.i18n.encoding" value="UTF-8" />
 
 	<package name="default" namespace="/" extends="struts-default">
+		<!--异常处理-->
+		<global-results>
+			<result name="sysException">/WEB-INF/pages/error.jsp</result>
+			<result name="error">/WEB-INF/pages/error.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="sysException" exception="com.bos.exception.SysException"/>
+			<exception-mapping result="error" exception="java.lang.Exception"/>
+		</global-exception-mappings>
+
+
+
 		<action name="login" method="login" class="loginAction">
-			<result name="login">/WEB-INF/pages/sysadmin/login/login.jsp</result>
+			<result name="login"><!--/WEB-INF/pages/sysadmin/login-->/login.jsp</result>
 			<result name="success">/WEB-INF/pages/home/fmain.jsp</result>
 		</action>
 		<action name="logout" method="logout" class="loginAction">
-			<result name="logout">/WEB-INF/pages/sysadmin/login/logout.jsp</result>
+			<result name="logout"><!--/WEB-INF/pages/sysadmin/login/logout.jsp-->
+				<!--/WEB-INF/pages/sysadmin/login-->/login.jsp
+			</result>
 		</action>
 		
 		

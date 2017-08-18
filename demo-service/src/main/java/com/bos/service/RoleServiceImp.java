@@ -1,6 +1,7 @@
 package com.bos.service;
 
 import com.bos.dao.BaseDao;
+import com.bos.domain.Module;
 import com.bos.domain.Role;
 import com.bos.utils.Page;
 import com.bos.utils.UtilFuns;
@@ -102,5 +103,16 @@ public class RoleServiceImp implements RoleService {
         Role role = baseDao.get(Role.class, model.getId());
         role.setName(model.getName());
         role.setRemark(model.getRemark());
+    }
+
+    @Override
+    public void change(String[] split, String id) {
+        if (split!=null &&split.length>0) {
+            Role role = baseDao.get(Role.class, id);
+            for (String s : split) {
+                Module module = baseDao.get(Module.class, s);
+                role.getModules().add(module);
+            }
+        }
     }
 }

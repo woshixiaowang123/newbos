@@ -1,11 +1,14 @@
 package com.bos.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by 隔壁老王 on 2017/7/23.
  */
+
 public class BaseEntity implements Serializable {
 
     protected String createBy;//创建者id
@@ -53,4 +56,6 @@ public class BaseEntity implements Serializable {
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
+
+
 }

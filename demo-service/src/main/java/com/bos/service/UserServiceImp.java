@@ -2,9 +2,9 @@ package com.bos.service;
 
 import com.bos.dao.BaseDao;
 import com.bos.domain.Module;
+import com.bos.domain.Role;
 import com.bos.domain.User;
-import com.bos.utils.Page;
-import com.bos.utils.UtilFuns;
+import com.bos.utils.*;
 import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -53,6 +53,8 @@ public class UserServiceImp implements UserService {
             entity.setId(uuid);
             entity.getUserInfo().setId(uuid);
             //Date date=new Date();
+
+            entity.setPassword(Encrypt.md5(SysConstant.DEFAULT_PASS,entity.getUserName()));
 
             SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 
@@ -105,5 +107,18 @@ public class UserServiceImp implements UserService {
         user.setState(model.getState());
         user.getDept().setId(model.getDept().getId());
         user.setUserName(model.getUserName());
+    }
+
+    @Override
+    public void addRole(String id, String[] roleIds) {
+        User user = baseDao.get(User.class, id);
+        if (roleIds!=null&&roleIds.length>0) {
+            for (String roleId : roleIds) {
+               /*Role role=new Role();
+               role.setId(roleId);*/
+                Role role = baseDao.get(Role.class, roleId);
+                user.getRoles().add(role);
+            }
+        }
     }
 }

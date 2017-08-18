@@ -3,12 +3,6 @@ package com.bos.action;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-/**
- * @Description:
- * @Author: 传智播客 java学院	传智.宋江
- * @Company: http://java.itcast.cn
- * @CreateDate: 2014年10月31日
- */
 @Controller
 @Scope("prototype")
 public class HomeAction extends BaseAction {

@@ -28,4 +28,6 @@ public interface RoleService {
     public  void delete(Class<Role> entityClass, Serializable[] ids);
 
     void save(Role model);
+
+    void change(String[] split, String id);
 }

@@ -1,3 +1,4 @@
+<%@ page import="org.apache.struts2.components.Include" %>
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ include file="../baselist.jsp" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -22,14 +23,15 @@
         <div class="panel-header">
         <div class="panel-title">权限管理</div>
         <div class="panel-content">
-			   <ul>
+			   <%--<ul>
 				<li><a href="${ctx}/sysadmin/deptAction_list" onclick="linkHighlighted(this)" target="main" id="aa_1">部门管理</a></li>
 				<li><a href="${ctx}/sysadmin/userAction_list" onclick="linkHighlighted(this)" target="main" id="aa_2">用户管理</a></li>
 				<li><a href="${ctx}/sysadmin/roleAction_list" onclick="linkHighlighted(this)" target="main" id="aa_3">角色管理</a></li>
 				<li><a href="${ctx}/sysadmin/moduleAction_list" onclick="linkHighlighted(this)" target="main" id="aa_4">模块管理</a></li>
-			</ul>
+			</ul>--%>
 			<!-- 引入动态的菜单生成 -->
-			<%--<%@include file="${pageContext.request.contextPath}/leftmenu.jsp" %>  --%>
+			<%--<%  file="${pageContext.request.contextPath}/leftmenu.jsp"%>--%>
+				   <%@ include file="../leftmenu.jsp" %>
         </div>
         </div>
     </div>

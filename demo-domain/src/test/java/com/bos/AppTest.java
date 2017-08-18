@@ -35,6 +35,13 @@ public class AppTest
      */
     public void testApp()
     {
-        System.out.println(new Date());
+        System.out.println("hellowordA");
+    }
+    {
+        System.out.println("123");
+    }
+    static {
+        System.out.println("456");
     }
 }
+

@@ -49,6 +49,15 @@
             alert("请先选择一项并且只能选择一项，再进行操作！");
         }
     }
+    //角色分配权限
+    function toModule(){
+        if(isOnlyChecked()){
+//            formSubmit('roleAction_tomodule','_self');this.blur();
+            formSubmit('roleAction_tomodule','_self');
+        }else{
+            alert("请先选择一项并且只能选择一项，再进行操作！");
+        }
+    }
 </script>
 
 <body>
@@ -63,7 +72,7 @@
 <li id="new"><a href="#" onclick="formSubmit('roleAction_tocreate','_self');this.blur();">新增</a></li>
 <li id="update"><a href="#" onclick="javascript:update()">修改</a></li>
 <li id="delete"><a href="#" onclick="javascript:dele()">删除</a></li>
-<li id="new"><a href="#" onclick="formSubmit('roleAction_tomodule','_self');this.blur();" title="分配权限">权限</a></li>
+<li id="new"><a href="#" onclick="javascript:toModule()" title="分配权限">权限</a></li>
 </ul>
   </div>
 </div>

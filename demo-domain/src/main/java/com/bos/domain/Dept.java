@@ -6,12 +6,14 @@ import javax.persistence.Entity;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
+import javax.persistence.*;
 
 /**
  * 部门实体类
  * Created by 隔壁老王 on 2017/7/11.
  */
 @Entity
+@javax.persistence.Table(name = "dept_p", schema = "new_bos")
 public class Dept implements Serializable {
 
     private String id;
@@ -82,8 +84,8 @@ public class Dept implements Serializable {
         this.users = users;
     }
 
-    @Override
-    public String toString() {
+
+  /*  public String toString() {
         return "Dept{" +
                 "id='" + id + '\'' +
                 ", deptname='" + deptname + '\'' +
@@ -92,5 +94,5 @@ public class Dept implements Serializable {
                 ", orderno=" + orderno +
                 ", users=" + users +
                 '}';
-    }
+    }*/
 }

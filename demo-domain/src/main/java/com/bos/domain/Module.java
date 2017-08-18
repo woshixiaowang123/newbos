@@ -1,13 +1,17 @@
 package com.bos.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
  * Module entity. @author MyEclipse Persistence Tools
  */
-
+@Entity
+@Table(name = "module_p", schema = "new_bos")
 public class Module implements java.io.Serializable {
 
 	// Fields
@@ -30,9 +34,9 @@ public class Module implements java.io.Serializable {
 	private Integer orderNo;//排序编号
 	private String createBy;
 	private String createDept;
-	private Timestamp createTime;
+	private Date createTime;
 	private String updateBy;
-	private Timestamp updateTime;
+	private Date updateTime;
 	private Set<Role> roles = new HashSet(0);//模块与角色的多对多关系
 
 	// Constructors
@@ -42,18 +46,15 @@ public class Module implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public Module(String moduleId, Timestamp createTime, Timestamp updateTime) {
+	public Module(String moduleId, Date createTime, Date updateTime) {
 		this.id = moduleId;
 		this.createTime = createTime;
 		this.updateTime = updateTime;
 	}
 
 	/** full constructor */
-	public Module(String moduleId, String parentId, String parentName, String name, Integer layerNum, Integer isLeaf,
-			String ico, String cpermission, String curl, Integer ctype, Integer state, String belong, String cwhich,
-			Integer quoteNum, String remark, Integer orderNo, String createBy, String createDept, Timestamp createTime,
-			String updateBy, Timestamp updateTime, Set roles) {
-		this.id = moduleId;
+	public Module(String id, String parentId, String parentName, String name, Integer layerNum, Integer isLeaf, String ico, String cpermission, String curl, Integer ctype, Integer state, String belong, String cwhich, Integer quoteNum, String remark, Integer orderNo, String createBy, String createDept, Date createTime, String updateBy, Date updateTime, Set<Role> roles) {
+		this.id = id;
 		this.parentId = parentId;
 		this.parentName = parentName;
 		this.name = name;
@@ -76,9 +77,6 @@ public class Module implements java.io.Serializable {
 		this.updateTime = updateTime;
 		this.roles = roles;
 	}
-
-	// Property accessors
-
 
 	public String getId() {
 		return id;
@@ -224,11 +222,11 @@ public class Module implements java.io.Serializable {
 		this.createDept = createDept;
 	}
 
-	public Timestamp getCreateTime() {
+	public Date getCreateTime() {
 		return createTime;
 	}
 
-	public void setCreateTime(Timestamp createTime) {
+	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
 
@@ -240,11 +238,11 @@ public class Module implements java.io.Serializable {
 		this.updateBy = updateBy;
 	}
 
-	public Timestamp getUpdateTime() {
+	public Date getUpdateTime() {
 		return updateTime;
 	}
 
-	public void setUpdateTime(Timestamp updateTime) {
+	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
 	}
 
@@ -254,33 +252,5 @@ public class Module implements java.io.Serializable {
 
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
-	}
-
-	@Override
-	public String toString() {
-		return "Module{" +
-				"id='" + id + '\'' +
-				", parentId='" + parentId + '\'' +
-				", parentName='" + parentName + '\'' +
-				", name='" + name + '\'' +
-				", layerNum=" + layerNum +
-				", isLeaf=" + isLeaf +
-				", ico='" + ico + '\'' +
-				", cpermission='" + cpermission + '\'' +
-				", curl='" + curl + '\'' +
-				", ctype=" + ctype +
-				", state=" + state +
-				", belong='" + belong + '\'' +
-				", cwhich='" + cwhich + '\'' +
-				", quoteNum=" + quoteNum +
-				", remark='" + remark + '\'' +
-				", orderNo=" + orderNo +
-				", createBy='" + createBy + '\'' +
-				", createDept='" + createDept + '\'' +
-				", createTime=" + createTime +
-				", updateBy='" + updateBy + '\'' +
-				", updateTime=" + updateTime +
-				", roles=" + roles +
-				'}';
 	}
 }

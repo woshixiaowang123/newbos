@@ -1,12 +1,15 @@
 package com.bos.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.sql.Date;
 import java.sql.Timestamp;
 
 /**
  * UserInfo entity. @author MyEclipse Persistence Tools
  */
-
+@Entity
+@Table(name = "dept_p", schema = "new_bos", catalog = "")
 public class UserInfo extends BaseEntity{
 
 	// Fields
@@ -146,7 +149,7 @@ public class UserInfo extends BaseEntity{
 		this.orderNo = orderNo;
 	}
 
-	@Override
+	/*@Override
 	public String toString() {
 		return "UserInfo{" +
 				"id='" + id + '\'' +
@@ -167,5 +170,5 @@ public class UserInfo extends BaseEntity{
 				", updateBy='" + updateBy + '\'' +
 				", updateTime=" + updateTime +
 				'}';
-	}
+	}*/
 }

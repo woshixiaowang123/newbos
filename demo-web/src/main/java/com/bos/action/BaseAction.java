@@ -74,7 +74,7 @@ public class BaseAction extends ActionSupport implements RequestAware, SessionAw
 	}
 
 	//把list的内容放入context区域中
-	public  void pushContext(String key,List list){
+	public  void pushContext(String key,Object list){
 		ActionContext.getContext().put(key,list);
 	}
 

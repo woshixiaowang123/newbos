@@ -2,8 +2,10 @@ package com.bos.action.sysadmin;
 
 import com.bos.action.BaseAction;
 import com.bos.domain.Dept;
+import com.bos.domain.Role;
 import com.bos.domain.User;
 import com.bos.service.DeptService;
+import com.bos.service.RoleService;
 import com.bos.service.UserService;
 import com.bos.service.UserService;
 import com.bos.utils.Page;
@@ -11,8 +13,10 @@ import com.opensymphony.xwork2.ModelDriven;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * UserAction
@@ -26,6 +30,9 @@ public class UserAction extends BaseAction implements ModelDriven<User> {
 
     @Autowired
     private DeptService deptService;
+
+    @Autowired
+    private RoleService roleService;
 
 
     private User model=new User();
@@ -121,6 +128,39 @@ public class UserAction extends BaseAction implements ModelDriven<User> {
       /*  //现在所有的id都封装到了String数组中
         UserService.delete(User.class,ids);*/
 
+        return "reList";
+    }
+
+
+    //分配角色
+    public String torole() throws Exception{
+
+        //需要查询出所有的角色
+        List<Role> roleList = roleService.find("from Role order by orderNo", Role.class, null);
+        //把list压入栈顶
+        this.pushContext("roleList",roleList);
+        User user = userService.get(User.class, model.getId());
+        this.pushStack(user);
+        StringBuilder stringBuilder=new StringBuilder();
+        Set<Role> roles = user.getRoles();
+        for (Role role : roles) {
+            stringBuilder.append(role.getName()).append(",");
+        }
+        //把stringbuilder压入栈顶
+        this.pushContext("userRoleStr",stringBuilder.toString());
+
+
+        return "torole";
+    }
+        private String[] roleIds;
+
+    public void setRoleIds(String[] roleIds) {
+        this.roleIds = roleIds;
+    }
+
+    //增加用户的角色
+    public String role(){
+        userService.addRole(model.getId(),roleIds);
         return "reList";
     }
 }

@@ -28,4 +28,6 @@ public interface UserService {
     public  void delete(Class<User> entityClass, Serializable[] ids);
 
     void save(User model);
+
+    void addRole(String id, String[] roleIds);
 }

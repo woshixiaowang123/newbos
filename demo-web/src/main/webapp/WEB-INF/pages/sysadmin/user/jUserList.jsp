@@ -46,6 +46,14 @@
                 alert("请先选择一项并且只能选择一项，再进行操作！");
             }
         }
+         //跳转角色页面
+         function torole() {
+             if(isOnlyChecked()){
+                 formSubmit('userAction_torole','_self');
+             }else{
+                 alert("请先选择一项并且只能选择一项，再进行操作！");
+             }
+         }
 	</script>
 </head>
 
@@ -59,7 +67,7 @@
 <li id="view"><a href="javascript:toView()">查看</a></li>
 <li id="new"><a href="#" onclick="formSubmit('userAction_tocreate','_self');this.blur();">新增</a></li>
 <li id="update"><a href="#" onclick="javascript:toUpdate()">修改</a></li>
-<li id="update"><a href="#" onclick="formSubmit('userAction_torole','_self');this.blur();">角色</a></li>
+<li id="update"><a href="#" onclick="javascript:torole()">角色</a></li>
 <li id="delete"><a href="#" onclick="javascript:dele()">删除</a></li>
 </ul>
   </div>
